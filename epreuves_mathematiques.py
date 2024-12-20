@@ -10,15 +10,15 @@ def factorielle(n):
     return 1 if n == 0 else n * factorielle(n - 1)
 
 
-def epreuve_factorielle():
+def epreuve_math_factorielle():
     """
     fonction de l'épreuve de factorielle
     """
     print("")
-    pick = random.randint(0, 10)
+    pick = random.randint(1, 10)
     clearscreen()
     if int(input(f"Calcule donc la factorielle de {pick} !\n=>")) == factorielle(pick):
-        time.sleep(2)
+        time.sleep(1)
         clearscreen()
         print("Voyons voir...")
         time.sleep(2)
@@ -34,5 +34,14 @@ def epreuve_factorielle():
         time.sleep(2)
         return False
 
+epreuve_math_factorielle()
 
-epreuve_factorielle()
+
+def resoudre_equation_lineaire():
+    """
+    fonction de la résolution d'équation linéaire
+    """
+    a,b = random.randint(1, 10)
+    solution = -b/a
+
+def epreuve_math_equation():
