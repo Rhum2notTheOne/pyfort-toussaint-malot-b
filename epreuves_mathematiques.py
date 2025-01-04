@@ -8,6 +8,13 @@ def factorielle(n):  # Retourne la factorielle de n de manière récursive
 
 
 def epreuve_math_factorielle():  # fonction de l'épreuve de factorielle
+    print(
+        "Bienvenue dans l'épreuve de factorielle ! Ton objectif est de donner le resultat d'une factorielle."
+    )
+    time.sleep(1)
+    print("exemple : la factorielle de 3 est 3! = 3*2*1 = 6")
+    time.sleep(1)
+    clearscreen()
     pick = random.randint(1, 10)
     clearscreen()
     if int(input(f"Calcule donc la factorielle de {pick} !\n=>")) == factorielle(pick):
@@ -36,6 +43,10 @@ def resoudre_equation_lineaire():  # Génère une équation linéaire sous la fo
 
 
 def epreuve_math_equation():  # Épreuve de résolution d'équation linéaire.
+    print(
+        "Bienvenue dans l'épreuve de résolution d'équation linéaire ! Ton objectif est de trouver la valeur de x qui résout une équation de la forme ax + b = 0."
+    )
+
     a, b, solution = resoudre_equation_lineaire()
     clearscreen()
     print("Résouds cette équation : ", a, "x + ", b, " = 0")
@@ -69,6 +80,14 @@ def premier_plus_proche(n):  # Retourne le premier nombre premier supérieur ou 
 
 
 def epreuve_math_premier():  # Épreuve des nombres premiers : le joueur doit trouver le nombre premier le plus proche.
+    clearscreen()
+    print(
+        "Bienvenue dans l'épreuve des nombres premiers ! Ton objectif est de trouver l'entier premier le plus proche de celui qui va t'être donné"
+    )
+    time.sleep(1)
+    print("exemple : le nbr_jr premier le plus proche de 10 est 11")
+    time.sleep(1)
+    clearscreen()
     n = random.randint(10, 20)
     solution = premier_plus_proche(n)
     print("Trouve le nombre premier le plus proche de", n)
@@ -87,6 +106,11 @@ def epreuve_math_premier():  # Épreuve des nombres premiers : le joueur doit tr
 
 
 def epreuve_roulette_mathematique():  # Épreuve de la roulette mathématique : addition, soustraction ou multiplication des nombres générés.
+    clearscreen()
+    print(
+        "Bienvenue dans l'épreuve de la roulette mathématique ! Ton objectif est de calculer le résultat d'une opération (addition, soustraction ou multiplication) appliquée à une série de nombres qui te seront donnés."
+    )
+    time.sleep(1)
     solution = -1
     nombres = [random.randint(1, 20) for _ in range(5)]
     operation = random.choice(["+", "-", "*"])
