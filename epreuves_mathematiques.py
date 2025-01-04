@@ -38,13 +38,13 @@ def resoudre_equation_lineaire():  # Génère une équation linéaire sous la fo
 def epreuve_math_equation():  # Épreuve de résolution d'équation linéaire.
     a, b, solution = resoudre_equation_lineaire()
     clearscreen()
-    print("Résolvez cette équation : ", a, "x + ", b, " = 0")
+    print("Résouds cette équation : ", a, "x + ", b, " = 0")
     reponse = float(input("Quelle est la valeur de x ?\n=> "))
     clearscreen()
     print("Voyons voir...")
     time.sleep(2)
     if reponse == solution:
-        print("Bravo, vous avez gagné une clé !")
+        print("Bravo, tu as gagné une clé !")
         time.sleep(2)
         return True
     else:
@@ -71,7 +71,6 @@ def premier_plus_proche(n):  # Retourne le premier nombre premier supérieur ou 
 def epreuve_math_premier():  # Épreuve des nombres premiers : le joueur doit trouver le nombre premier le plus proche.
     n = random.randint(10, 20)
     solution = premier_plus_proche(n)
-    clearscreen()
     print("Trouve le nombre premier le plus proche de", n)
     reponse = int(input("Quel est ce nombre ?\n=> "))
     clearscreen()
@@ -88,10 +87,12 @@ def epreuve_math_premier():  # Épreuve des nombres premiers : le joueur doit tr
 
 
 def epreuve_roulette_mathematique():  # Épreuve de la roulette mathématique : addition, soustraction ou multiplication des nombres générés.
+    solution = -1
     nombres = [random.randint(1, 20) for _ in range(5)]
     operation = random.choice(["+", "-", "*"])
     if operation == "+":
         solution = sum(nombres)
+        # utilisation de la fonction prédéfinie sum sur les arrays
     if operation == "-":
         solution = nombres[0]
         for num in nombres[1:]:
@@ -120,8 +121,6 @@ def epreuve_roulette_mathematique():  # Épreuve de la roulette mathématique : 
 
 def pick():  # Sélectionne et exécute aléatoirement une épreuve mathématique.
     clearscreen()
-    print("Bienvenue dans l'épreuve de Mathématiques ! Prépare-toi à réfléchir...")
-    time.sleep(2)
 
     epreuves = [
         epreuve_math_factorielle,  # Liste des épreuves mathématiques disponibles

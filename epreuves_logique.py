@@ -179,13 +179,6 @@ def bataille_navale():
 
     assert n_b <= n, "Trop de bateaux pour le terrain !"
 
-    print("Bienvenue dans le jeu de la bataille navale!")
-    time.sleep(1)
-    print(
-        "Le terrain de jeu est de taille 3x3, et ton objectif est de couler tous les bateaux ennemis !"
-    )
-    time.sleep(3)
-
     global flotte
     global flotte_ennemie
 
