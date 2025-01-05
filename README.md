@@ -1,42 +1,42 @@
 # Projet TI101 : Simulateur Fort Boyard
 
 ## Introduction
-Bonjour ! Voici un projet Python inspiré de Fort Boyard. Le but est de recréer des épreuves amusantes pour gagner des clés et accéder à la salle du trésor.
+Un projet Python simple basé sur Fort Boyard. Le but : réussir des épreuves pour obtenir des clés et ouvrir la salle du trésor.
 
 ## Organisation
-Le projet est divisé en plusieurs fichiers Python :
-- **`epreuves_mathematiques.py`** : Épreuves de maths comme les factorielles.
-- **`epreuves_hasard.py`** : Jeux de chance comme le lancer de dés.
-- **`epreuves_logiques.py`** : Épreuves de logique (ex. : le jeu de NIM).
-- **`enigme_pere_fouras.py`** : Résoudre des énigmes du Père Fouras.
-- **`epreuve_finale.py`** : Trouver le mot-code pour la salle du trésor.
+Fichiers principaux :
+- **`epreuves_mathematiques.py`** : Jeux mathématiques (factorielles, etc.).
+- **`epreuves_hasard.py`** : Jeux de chance (lancer de dés, etc.).
+- **`epreuves_logiques.py`** : Jeux logiques comme le NIM.
+- **`enigme_pere_fouras.py`** : Énigmes du Père Fouras.
+- **`epreuve_finale.py`** : Salle du trésor.
 
-Les données comme les énigmes et indices sont dans le dossier `data` en fichiers JSON.
+Les fichiers JSON pour les énigmes et indices sont dans le dossier `data`.
 
 ## Fonctionnement
-1. **Composer une équipe** : Jusqu'à 3 joueurs avec des rôles différents.
-2. **Participer aux épreuves** : Réussissez pour obtenir des clés.
-3. **Débloquer la salle du trésor** : Utilisez les indices pour deviner le mot-code.
+1. Créer une équipe (1 à 3 joueurs).
+2. Faire les épreuves et gagner des clés.
+3. Ouvrir la salle du trésor avec les indices.
 
 ## Installation
 1. Clonez le projet :
    ```bash
-   git clone <url_du_projet>
+   git clone https://github.com/Rhum2notTheOne/pyfort-toussaint-malot-b
    ```
-2. Exécutez le fichier principal :
-   ```bash
+2. Lancez le jeu :
+   ```python
    python main.py
    ```
 
-## Points d'amélioration
-- Ajouter plus d'épreuves.
-- Permettre la sauvegarde des parties.
+## Points à Améliorer
+- Ajouter des épreuves.
+- Sauvegarder les parties.
+- 
+## Contributeurs
+@S3nda
+@Rhum2notTheOne
 
-## Remerciements
-Merci de jouer et amusez-vous bien avec ce simulateur Fort Boyard !
+## Notes
+Certaines fonctions utilisent le mot "pick" pour choisir les épreuves. Ce choix respecte le principe de polymorphisme en programmation objet.
+Amusez-vous bien avec ce jeu Fort Boyard !
 
-
-#### design du code
-
-- nous avons choisi de nommer les fonctions relatives à la selection des epreuves "pick" plutôt que "epreuve_math" par exemple
-  en effet, nous avons trouvé que "pick" était plus explicite et respectait le principe de polymorphisme
