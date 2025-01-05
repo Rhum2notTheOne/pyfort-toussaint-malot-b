@@ -13,7 +13,7 @@ def main():
         "epreuves_hasard": epreuves_hasard,
         "epreuves_logique": epreuves_logique,
         "epreuves_mathematiques": epreuves_mathematiques,
-        "epreuve_finale": epreuve_finale,
+        "enigme_pere_fouras" : enigme_pere_fouras
     }
     while clees < 3:
         clearscreen()
@@ -33,6 +33,9 @@ def main():
         except TypeError or ValueError:
             print(f"Veuillez entrer un nombre entre 1 et {len(epreuves.keys())}")
             continue
+    epreuve_finale.salle_du_tresor(
+    # epreuve finale, le moment ou l'on
+
 
 
 if __name__ == "__main__":
