@@ -30,8 +30,8 @@ Les fichiers JSON pour les énigmes et indices sont dans le dossier `data`.
 
 ## Points à Améliorer
 - Ajouter des épreuves.
-- Sauvegarder les parties.
-- 
+- Sauvegarder les parties
+
 ## Contributeurs
 @S3nda
 @Rhum2notTheOne
