@@ -3,6 +3,7 @@ import random
 import time
 from fonctions_utiles import clearscreen
 
+
 def salle_du_tresor():
     """
     Simulation de l'épreuve finale : trouver le mot-code pour ouvrir le coffre.
@@ -10,20 +11,24 @@ def salle_du_tresor():
     try:
         # Chargement des données JSON
         with open("data/indicesSalle.json", "r", encoding="utf-8") as f:
-            f_dict = json.load(f) # load le dictionnaire principal
+            f_dict = json.load(f)  # load le dictionnaire principal
     except FileNotFoundError:
         print("Erreur : le fichier indicesSalle.json est introuvable.")
         return False
-    except :
+    except:
         # pour gérer tout autre type d'exception durant l'ouverture et la lecture du fichier
         return False
 
-    f_dict = f_dict["Fort Boyard"] # selectionne le sous dictionnaire de l'émission fort boyard
+    f_dict = f_dict[
+        "Fort Boyard"
+    ]  # selectionne le sous dictionnaire de l'émission fort boyard
     if not f_dict:
         print("Erreur : il manque des données dans le fichier indice")
         return
 
-    em_list = list(f_dict.values()) # récupère les émissions (valeurs) indépendamment des années (clées)
+    em_list = list(
+        f_dict.values()
+    )  # récupère les émissions (valeurs) indépendamment des années (clées)
     em_rnd = random.choice(em_list)
     em_rnd = list(em_rnd.values())[0]
 
@@ -57,5 +62,6 @@ def salle_du_tresor():
         time.sleep(1)
         print("Le coffre reste fermé. VOUS AVEZ PERDU !")
         return False
+
 
 salle_du_tresor()
