@@ -5,6 +5,7 @@ from fonctions_utiles import clearscreen
 
 
 def salle_du_tresor():
+    clearscreen()
     """
     Simulation de l'épreuve finale : trouver le mot-code pour ouvrir le coffre.
     """
@@ -44,6 +45,7 @@ def salle_du_tresor():
     found = False
 
     for i in range(1, 4):
+        clearscreen()
         print("Alors, quel est le mot-code ?")
         reponse = input("=> ").strip()
         if reponse == code:
@@ -54,7 +56,7 @@ def salle_du_tresor():
             time.sleep(1)
             if i < 3:
                 print("Voici un autre indice :")
-                print(indices[2 + i])
+                print(indices[: 2 + i])
                 time.sleep(1)
 
     if not found:
@@ -62,6 +64,3 @@ def salle_du_tresor():
         time.sleep(1)
         print("Le coffre reste fermé. VOUS AVEZ PERDU !")
         return False
-
-
-salle_du_tresor()
