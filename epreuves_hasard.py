@@ -10,7 +10,7 @@ def bonneteau():
     clearscreen()
     print("Bienvenue au jeu de bonneteau !")
     print(
-        "Dans ce jeu, vous devez retrouver la bille cachée sous l'un des trois gobelets."
+        "Dans ce jeu, tu dois retrouver la bille cachée sous l'un des trois gobelets."
     )
     time.sleep(3)
     tentatives = 0
@@ -27,11 +27,11 @@ def bonneteau():
         time.sleep(2)
         pick = random.randint(0, 2)
         if choix == liste_gobelets[pick]:
-            print("Bravo, vous avez gagné la clée !")
+            print("Bravo, tu as gagné la clée !")
             time.sleep(2)
             return True
         elif tentatives == 1:
-            print("Perdu ! Mais je vous laisse une seconde chance.")
+            print("Perdu ! Mais je te laisse une seconde chance.")
         else:
             print("Perdu ! La bille était sous le gobelet", liste_gobelets[pick])
             time.sleep(2)
@@ -45,7 +45,7 @@ def jeu_lance_des():
     """
     clearscreen()
     print("Bienvenue au jeu du lancé de dés !")
-    print("Dans ce jeu, vous devez être le premier à obtenir un 6 en lançant un dé.")
+    print("Dans ce jeu, tu dois être le premier à obtenir un 6 en lançant un dé.")
     time.sleep(4)
     tentatives = 0
     while tentatives < 3:
@@ -58,7 +58,7 @@ def jeu_lance_des():
         print(str(picks[0]), "|", str(picks[1]))
         time.sleep(2)
         if picks[0] == 6 or picks[1] == 6:
-            print("Oh, vous avez gagné la clé !")
+            print("Oh, tu as gagné la clé !")
             time.sleep(2)
             return True
         clearscreen()
@@ -72,10 +72,10 @@ def jeu_lance_des():
         print(str(picks[0]), "|", str(picks[1]))
         time.sleep(2)
         if picks[0] == 6 or picks[1] == 6:
-            print("Bien joué maitre du jeu, vous méritez votre place...")
+            print("Bien joué maitre du jeu, tu mérites ta place...")
             time.sleep(2)
             return False
-        print("Vous aussi ?!")
+        print("toi aussi ?!")
         time.sleep(2)
 
 

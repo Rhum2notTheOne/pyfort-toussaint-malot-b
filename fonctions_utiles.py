@@ -1,6 +1,7 @@
 import os
 import time
 
+
 def introduction():
     """
     Explique les règles du jeu Fort Boyard.
@@ -22,7 +23,7 @@ def introduction():
     print("\nBut : Trouvez le trésor en gagnant des clés et en devinant le mot-code.")
     print("\nBonne chance !!!")
     print("=" * 40)
-    time.sleep(2)
+    input("\nAppuyez sur Entrée pour continuer...")
     clearscreen()
 
 
@@ -33,8 +34,13 @@ def composer_equipe():
     """
     equipe = []
     while True:
+        clearscreen()
         try:
-            nbr_jr = int(input("=> Combien de joueurs voulez-vous dans votre équipe ? (1 à 3) : "))
+            nbr_jr = int(
+                input(
+                    "=> Combien de joueurs voulez-vous dans votre équipe ? (1 à 3) : "
+                )
+            )
             if 1 <= nbr_jr <= 3:
                 break
             print("Le nombre doit être entre 1 et 3.")
@@ -44,31 +50,62 @@ def composer_equipe():
     leader = False  # Pour vérifier si un leader a été désigné
     leader_found = False
     for i in range(nbr_jr):
-        print(f"\n| Joueur {i + 1} |")
-        nom = input("Nom : ").strip()
-        emploi = input("Emploi : ").strip()
+        while True:
+            print(f"\n| Joueur {i + 1} |")
+            nom = input("Nom : ").strip()
+            emploi = input("Emploi : ").strip()
+            if nom == "" or emploi == "":  # Vérifie si les champs sont vides
+                print("Nom ou emploi vide. Veuillez réessayer.")
+                continue
 
-        # Demande si le joueur est le leader
-        if not leader_found:
-            is_leader = input("Est-ce le leader de l'équipe ? (o/n) : ").strip().lower()
-            leader = is_leader == "o"
-            if leader:
-                leader_found = True
-        equipe.append({"nom": nom, "emploi": emploi, "cles_gagnees": 0, "leader": leader})
-        leader = False
+            # Demande si le joueur est le leader
+            if not leader_found:
+                is_leader = (
+                    input("Est-ce le leader de l'équipe ? (o/n) : ").strip().lower()
+                )
+                leader = is_leader == "o"
+                if leader:
+                    leader_found = True
+            equipe.append(
+                {"nom": nom, "emploi": emploi, "cles_gagnees": 0, "leader": leader}
+            )
+            leader = False
+            break
 
     # Si aucun leader n'a été désigné, on définit le premier joueur comme leader
     if not leader_found:
-        print("\nAucun leader n'a été désigné. Le premier joueur sera automatiquement désigné comme leader.")
+        print(
+            "\nAucun leader n'a été désigné. Le premier joueur sera automatiquement désigné comme leader."
+        )
+        time.sleep(2)
         equipe[0]["leader"] = True
 
     # Affiche l'équipe finale
     print("\nVotre équipe :")
     for i, joueur in enumerate(equipe, 1):
         leader_status = "Leader" if joueur["leader"] else "Membre"
-        print(f"Joueur {i}: {joueur['nom']} ({joueur['emploi']}) - Clés : {joueur['cles_gagnees']} - {leader_status}")
+        print(
+            f"Joueur {i}: {joueur['nom']} ({joueur['emploi']}) - Clés : {joueur['cles_gagnees']} - {leader_status}"
+        )
+    time.sleep(2)
 
     return equipe
+
+
+def choix_joueur(equipe):
+    """Permet au leader de l'équipe de choisir un joueur pour l'épreuve"""
+    while True:
+        clearscreen()
+        print("\nChoisissez le joueur qui participera à l'épreuve :")
+        for i, joueur in enumerate(equipe, 1):
+            print(f"{i} - {joueur['nom']} ({joueur['emploi']})")
+        try:
+            choix = int(input("=> "))
+            if choix < 1 or choix > len(equipe):
+                raise ValueError
+            return equipe[choix - 1]
+        except ValueError:
+            print(f"Veuillez entrer un nombre entre 1 et {len(equipe)}")
 
 
 def clearscreen():
@@ -83,23 +120,28 @@ def clearscreen():
         os.system("clear")
 
 
-def presentation(epreuve):
-    clearscreen()
-    if epreuve == "bataille_navale":
-        print("Bienvenue dans le jeu de la bataille navale!")
-        time.sleep(1)
-        print(
-            "Le terrain de jeu est de taille 3x3, et ton objectif est de couler tous les bateaux ennemis !"
-        )
-    if epreuve == "factorielle":
-        print(
-            "Bienvenue dans l'épreuve de factorielle ! Ton objectif est de donner le resultat d'une factorielle"
-        )
-        time.sleep(1)
-        print("exemple : la factorielle de 3 est 3! = 3*2*1 = 6")
-    if epreuve == "premier":
-        print(
-            "Bienvenue dans l'épreuve de nbr_jr premier ! Ton objectif est de trouver l'entier premier le plus proche de celui qui va t'être donné"
-        )
-        time.sleep(1)
-        print("exemple : le nbr_jr premier le plus proche de 10 est 11")
+def choix_epreuves():
+    """
+    Permet au joueur de choisir une épreuve parmi les différentes catégories.
+    Retourne le nom de l'épreuve sélectionnée (sous forme de chaîne).
+    """
+    epreuves = [
+        "epreuves_hasard",
+        "epreuves_logique",
+        "epreuves_mathematiques",
+        "enigme_pere_fouras",
+    ]
+
+    while True:
+        clearscreen()
+        print("Choisissez une épreuve parmi les suivantes :")
+        for i, ep in enumerate(epreuves, start=1):
+            print(f"{i}. {ep}")
+        try:
+            choice = int(input("=> "))
+            if 1 <= choice <= len(epreuves):
+                return epreuves[choice - 1]
+            else:
+                print(f"Veuillez entrer un nombre entre 1 et {len(epreuves)}.")
+        except ValueError:
+            print("Entrée invalide. Veuillez entrer un nombre.")

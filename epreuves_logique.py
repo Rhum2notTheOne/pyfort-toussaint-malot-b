@@ -71,7 +71,7 @@ class Flotte:
 def preparation_flottes():
     clearscreen()
     print("Commencons par préparer ton armée...")
-    time.sleep(1)
+    time.sleep(2)
 
     x, y = -1, -1
     for i in range(n_b):
@@ -175,7 +175,8 @@ def bataille_navale():
     print(
         "Le terrain de jeu est de taille 3x3, et ton objectif est de couler tous les bateaux ennemis !"
     )
-    time.sleep(2)
+    time.sleep(1)
+    input("Appuie sur entrée pour commencer...")
 
     clearscreen()
     global n
@@ -198,12 +199,14 @@ def bataille_navale():
         attaque()
         if flotte_ennemie.n_b == 0:
             print("Mince ! ! ! Tu as coulé tous les bateaux ennemis ! Voici ta clée...")
+            time.sleep(2)
             return True
         attaque_ennemie()
         if flotte.n_b == 0:
             print(
                 "Tu n'as pas réussi à couler tous les bateaux ennemis... Pas de clée pour toi !"
             )
+            time.sleep(2)
             return False
 
 
