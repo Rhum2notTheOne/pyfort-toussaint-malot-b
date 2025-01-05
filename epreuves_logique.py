@@ -170,6 +170,13 @@ def attaque_ennemie():
 
 
 def bataille_navale():
+    print("Bienvenue dans le jeu de la bataille navale!")
+    time.sleep(1)
+    print(
+        "Le terrain de jeu est de taille 3x3, et ton objectif est de couler tous les bateaux ennemis !"
+    )
+    time.sleep(2)
+
     clearscreen()
     global n
     global n_b
