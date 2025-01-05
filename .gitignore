@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea
-Formulaire de dépôt intermédiaire.xlsx
+*.xlsx
 # C extensions
 *.so
 
