@@ -63,6 +63,3 @@ def salle_du_tresor():
         time.sleep(1)
         print("Le coffre reste fermé. VOUS AVEZ PERDU !")
         return False
-
-
-salle_du_tresor()
