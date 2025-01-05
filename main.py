@@ -1,3 +1,4 @@
+import time
 import epreuve_finale
 import epreuves_hasard
 import epreuves_logique
@@ -32,8 +33,12 @@ def jeu():
             # c'est que le joueur à réussi l'epreuve choisie
             participant["clees"] += 1
             clees += 1
-    epreuve_finale.salle_du_tresor()
-    # epreuve finale, le moment ou l'on doit deviner le mot clé
+    result = epreuve_finale.salle_du_tresor()
+    if result:
+        print("Bravo vous avez gagné le trésor !!!")
+        time.sleep(3)
+        input("Appuyez sur entrée pour quitter")
+    return
 
 
 if __name__ == "__main__":

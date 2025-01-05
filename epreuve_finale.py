@@ -45,8 +45,7 @@ def salle_du_tresor():
     found = False
 
     for i in range(1, 4):
-        clearscreen()
-        print("Alors, quel est le mot-code ?")
+        print("Quel est le mot-code ?")
         reponse = input("=> ").strip()
         if reponse == code:
             print("Bravo, vous avez trouvé le mot-code !")
@@ -64,3 +63,6 @@ def salle_du_tresor():
         time.sleep(1)
         print("Le coffre reste fermé. VOUS AVEZ PERDU !")
         return False
+
+
+salle_du_tresor()
