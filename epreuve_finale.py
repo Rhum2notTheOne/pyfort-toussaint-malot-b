@@ -5,7 +5,6 @@ from fonctions_utiles import clearscreen
 
 
 def salle_Du_Tresor():
-    clearscreen()
     with open("data/indicesSalle.json") as f:
         f_dict = json.load(f)
     f_dict = f_dict["Fort Boyard"]
