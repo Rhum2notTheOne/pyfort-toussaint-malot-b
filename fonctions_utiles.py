@@ -67,7 +67,7 @@ def composer_equipe():
                 if leader:
                     leader_found = True
             equipe.append(
-                {"nom": nom, "emploi": emploi, "cles_gagnees": 0, "leader": leader}
+                {"nom": nom, "emploi": emploi, "clees": 0, "leader": leader}
             )
             leader = False
             break
